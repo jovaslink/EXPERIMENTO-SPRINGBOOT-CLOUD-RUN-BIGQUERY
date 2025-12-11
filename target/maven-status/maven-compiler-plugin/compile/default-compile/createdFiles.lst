@@ -1,0 +1,5 @@
+com\ejemplo\breakingbad\servicio\FraseService.class
+com\ejemplo\breakingbad\controlador\FraseController.class
+com\ejemplo\breakingbad\BreakingBadApplication.class
+com\ejemplo\breakingbad\repositorio\FraseBigQueryRepository.class
+com\ejemplo\breakingbad\modelo\Frase.class

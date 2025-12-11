@@ -1,0 +1,17 @@
+# configuracion especifica para el perfil "gcp"
+# configuracion para ejecutarse en Cloud Run
+
+server:
+  # puerto en el que escucha la aplicación.
+  # Cloud Run inyecta el valor de la variable de entorno PORT
+  port: ${PORT:8080}
+
+google:
+  cloud:
+    # ID del proyecto de GCP se lee desde una variable de entorno llamada PROJECT_ID.
+    project-id: ${PROJECT_ID:breakingbad-project}
+    bigquery:
+      # dataset de BigQuery que se utilizara en produccion
+      dataset: ${BQ_DATASET:breakingbad_dataset}
+      # tabla de BigQuery que se utilizara en produccion
+      table: ${BQ_TABLE:frases}

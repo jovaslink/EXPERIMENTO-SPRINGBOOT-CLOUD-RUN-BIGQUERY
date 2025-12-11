@@ -1,0 +1,15 @@
+# configuracion para el perfil local
+
+server:
+  # puerto en el que se levantara el servidor local
+  port: 8080
+
+google:
+  cloud:
+    # ID del proyecto de GCP para pruebas locales se puede usar el mismo que en la nube
+    project-id: breakingbad-project-local
+    bigquery:
+      # dataset de BigQuery que se usara en local (puede ser el mismo)
+      dataset: breakingbad_dataset
+      # tabla de BigQuery que contiene las frases
+      table: frases
