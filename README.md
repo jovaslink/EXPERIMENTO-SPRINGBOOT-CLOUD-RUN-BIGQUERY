@@ -1,13 +1,13 @@
 # Breaking Bad Backend Frases SpringBoot-BigQuery-CloudRun 
 
-Este proyecto es un ejemplo educativo de como transformar un backend sencillo para:
+Este proyecto es un ejemplo experimental de como transformar un backend sencillo para:
 - Usar **Spring Boot 3** y **Java 17**
 - Consultar datos desde **BigQuery** (en lugar de una base de datos relacional tradicional)
-- Seguir una arquitectura mas "empresarial": **Controlador → Servicio → Repositorio**
-- Empaquetar la aplicación en Docker
+- Seguir una arquitectura mas "empresarial": **Controlador-Servicio-Repositorio**
+- Empaquetar la aplicacion en Docker
 - Dejarla lista para desplegar en **Cloud Run**
 
-La idea es que este ejemplo sirva como **ejemplo** para migrar otros microservicios,
+La idea es que este ejemplo sirva como **ejemplo/experimento** para migrar otros microservicios,
 por ejemplo, de Oracle/WebLogic hacia Google Cloud Platform.
 
 ---
@@ -33,7 +33,7 @@ Capa por capa:
 - **Modelo (`Frase`)**
   - Clase simple que representa una frase con `id` y `texto`
 
-Esta separación hace que el codigo sea mas facil de mantener, probar y extender.
+Esto hace que el codigo sea mas facil de mantener, probar y extender.
 
 ---
 
@@ -80,9 +80,9 @@ Se usa cuando la app se despliega en Cloud Run:
 
 ## 4. Flujo de una peticion
 
-1. Un cliente hace una petición GET a:
+1. Un cliente hace una peticion GET a:
    - `/api/frases/aleatoria`
-2. `FraseController` recibe la petición y llama a `FraseService`
+2. `FraseController` recibe la peticion y llama a `FraseService`
 3. `FraseService` llama a `FraseBigQueryRepository`
 4. `FraseBigQueryRepository` ejecuta una consulta SQL en BigQuery:
    - `SELECT id, texto FROM tabla ORDER BY RAND() LIMIT 1`
@@ -102,7 +102,7 @@ Se usa cuando la app se despliega en Cloud Run:
 - gcloud CLI (opcional pero recomendable)
 - Docker (para contenedores y Cloud Run)
 
-### 5.2 Configuración de BigQuery
+### 5.2 Configuracion de BigQuery
 
 1. Crear un **dataset**, por ejemplo: `breakingbad_dataset`
 2. Crear una **tabla**, por ejemplo: `frases`
@@ -203,7 +203,7 @@ docker run -p 8080:8080   -e PROJECT_ID=tu-proyecto   -e BQ_DATASET=breakingbad_
 1. Crear repositorio:
 
 ```bash
-gcloud artifacts repositories create backend-repo   --repository-format=docker   --location=us-central1   --description="Repositorio de imágenes Docker para backend Breaking Bad"
+gcloud artifacts repositories create backend-repo   --repository-format=docker   --location=us-central1   --description="Repositorio de imagenes Docker para backend Breaking Bad"
 ```
 
 2. Etiquetar la imagen:
